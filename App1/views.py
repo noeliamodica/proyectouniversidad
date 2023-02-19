@@ -39,11 +39,13 @@ def inicioSesion(request):
       return render (request, "App1/login.html", {"formulario":form})
 
 def registro(request):
+      form_class = UsuarioRegistro
+      form = form_class(request.POST or None) 
       if request.method == "POST":
-            form: UsuarioRegistro(request.POST)
+            form = UsuarioRegistro(request.POST)
 
             if form.is_valid():
-                  usernme= form.cleaned_data.get ("username")
+                  usernme= form.cleaned_data["username"]
                   form.save()
                   return render (request, "App1/inicio.html", {"mensaje":"USUARIO CREADO"})
 
@@ -59,6 +61,7 @@ def editarUsuario(request):
             form: FormularioEditar(request.POST)
 
             if form.is_valid():
+
                   info= form.cleaned_data
                   
                   usuario.email = info ["email"]
@@ -66,10 +69,15 @@ def editarUsuario(request):
                   usuario.first_name = info ["first_name"]
                   usuario.last_name = info ["last_name"]
                   usuario.save()
+
                   return render (request, "App1/inicio.html")
 
       else:
-            form = FormularioEditar(initial={"email":usuario.email, "fist_name":usuario.first_name,"last_name":usuario.last_name})
+            form = FormularioEditar(initial={
+                  "email":usuario.email, 
+                  "fist_name":usuario.first_name,
+                  "last_name":usuario.last_name,
+                  })
       
       return render (request, "App1/editarPerfil.html", {"formulario":form,"usuario":usuario})
 

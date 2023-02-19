@@ -10,11 +10,14 @@ Registro
 
 {% block descripcion %}
 
-    <form action="" method="POST"> {% csrf_token %}
+    <form action="" method="POST"> 
+        
+        {% csrf_token %}
 
-    {{formulario.as_p}}
+        {{formulario.as_p}}
 
-    <button type="submit"> Registrarse </button>
+        <button type="submit"> Registrarse </button>
 
     </form>
+    
 {% endblock %}
