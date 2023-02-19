@@ -1,0 +1,38 @@
+{% extends "App1/padre.html" %}
+
+{%  load static %}
+
+{% block titulo %}
+
+ESTUDIANTES
+
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    {% for estudiante in object_list %}
+
+    <p> Nombre: {{estudiante.nombre}}</p>
+
+    <button>
+    <a href="{% url 'EstudiantesDetalle' estudiante.id %}"> Ver estudiante </a>
+    </button>
+
+    <button>
+    <a href="{% url 'EstudiantesEditar' estudiante.id %}"> Editar estudiante </a>
+    </button>
+
+    <button>
+    <a href="{% url 'EstudiantesEliminar' estudiante.id %}"> Eliminar estudiante </a>
+    </button>
+
+    
+    {% endfor %}
+
+    <br>
+    
+    <button>
+    <a href="{% url 'EstudiantesCrear' %}"> Crear estudiante </a>
+    
+{% endblock %}

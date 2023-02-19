@@ -1,0 +1,22 @@
+{% extends "App1/padre.html" %}
+
+{%  load static %}
+
+{% block titulo %}
+
+CARRERAS
+
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    <form action="" method="POST"> {% csrf_token %}
+        <table>
+            {{form.as_p}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+
+{% endblock %}
+

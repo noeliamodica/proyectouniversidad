@@ -1,0 +1,19 @@
+{% extends "App1/padre.html" %}
+
+{%  load static %}
+
+{% block titulo %}
+
+ESTUDIANTES
+
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    <p>Nombre: {{estudiante.nombre}}  </p>
+    <p>Carrera: {{estudiante.carrera}}  </p>
+
+    <a href="{% url 'EstudiantesLeer' %} "> Regresar </a>
+
+{% endblock %}

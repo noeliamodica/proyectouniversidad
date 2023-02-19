@@ -1,0 +1,38 @@
+{% extends "App1/padre.html" %}
+
+{%  load static %}
+
+{% block titulo %}
+
+CARRERAS
+
+    
+{% endblock %}
+
+{% block descripcion %}
+
+    {% for carrera in object_list %}
+
+    <p> Nombre: {{carrera.nombre}}</p>
+
+    <button>
+    <a href="{% url 'CarrerasDetalle' carrera.id %}"> Ver carrera </a>
+    </button>
+
+    <button>
+    <a href="{% url 'CarrerasEditar' carrera.id %}"> Editar carrera </a>
+    </button>
+
+    <button>
+    <a href="{% url 'CarrerasEliminar' carrera.id %}"> Eliminar carrera </a>
+    </button>
+
+    
+    {% endfor %}
+
+    <br>
+    
+    <button>
+    <a href="{% url 'CarrerasCrear' %}"> Crear carrera </a>
+    
+{% endblock %}
