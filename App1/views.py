@@ -54,7 +54,7 @@ def registro(request):
       
       return render (request, "App1/registro.html", {"formulario":form})
 
-def editarUsuario(request):
+#def editarUsuario(request):
       usuario = request.user
 
       if request.method == "POST":
@@ -70,13 +70,14 @@ def editarUsuario(request):
                   usuario.last_name = info ["last_name"]
                   usuario.save()
 
-                  return render (request, "App1/inicio.html")
+                  return render (request, "/App1/inicio.html")
 
       else:
             form = FormularioEditar(initial={
                   "email":usuario.email, 
                   "fist_name":usuario.first_name,
                   "last_name":usuario.last_name,
+                  "paswword":usuario.contra
                   })
       
       return render (request, "App1/editarPerfil.html", {"formulario":form,"usuario":usuario})
@@ -88,6 +89,12 @@ def estudiante(request):
 
     todas= Estudiantes.objects.all()
     return  render (request, "App1/estudiantes.html")
+
+
+# Para AboutMe.
+
+def acercaDeMi(request):
+      return render(request, "App1/about.html")
 
 
  #Para Carreras.

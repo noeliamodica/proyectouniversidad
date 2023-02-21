@@ -14,7 +14,8 @@ urlpatterns = [
     path('login/', inicioSesion , name="Login"),
     path('register/', registro , name="Register"),
     path('logout/', LogoutView.as_view(template_name="App1/logout.html"), name="Logout"),
-    path('editar/', editarUsuario , name="EditarUsuario"),
+    #path('editar/', editarUsuario , name="EditarUsuario"),
+    path('about/', acercaDeMi , name="About"),
     
 
 # CRUD DE PROFESORES
