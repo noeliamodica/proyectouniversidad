@@ -26,7 +26,7 @@ urlpatterns = [
 #CRUD DE CARRERAS USANDO CLASES
     path('carreras/list', ListaCarreras.as_view(), name="CarrerasLeer"),
     path('carreras/<int:pk>', DetalleCarreras.as_view(), name="CarrerasDetalle"),
-    path(r'nuevo$', CrearCarreras.as_view(), name="CarrerasCrear"),
+    path('carreras/crear/', CrearCarreras.as_view(), name="CarrerasCrear"),
     path('carreras/editar/<int:pk>', ActualizarCarreras.as_view(), name="CarrerasEditar"),
     path('carreras/eliminar/<int:pk>', EliminarCarreras.as_view(), name="CarrerasEliminar"),
 
