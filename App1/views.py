@@ -188,23 +188,24 @@ def editarProfesores (request, profesorNombre):
 
 class ListaCarreras(LoginRequiredMixin,ListView):
       model = Carreras
+      template_name = "/App1/carreras_list.html"
 
 class DetalleCarreras(LoginRequiredMixin, DetailView):
       model = Carreras
 
 class CrearCarreras(LoginRequiredMixin, CreateView):
       model = Carreras
-      success_url = "App1/carreras/list"
+      success_url = "/App1/carreras/"
       fields = ["nombre", "camada"]
 
 class ActualizarCarreras(LoginRequiredMixin, UpdateView):
       model = Carreras
-      success_url = "App1/carreras/list"
+      success_url = "/App1/carreras/"
       fields = ["nombre", "camada"]
 
 class EliminarCarreras(LoginRequiredMixin, DeleteView):      
       model = Carreras
-      success_url = "App1/carreras/list"
+      success_url = "/App1/carreras/"
 
 
 class ListaEstudiantes(ListView):
@@ -215,14 +216,14 @@ class DetalleEstudiantes(DetailView):
 
 class CrearEstudiantes(CreateView):
       model = Estudiantes
-      success_url = "App1/estudiantes/list"
+      success_url = "/App1/estudiantes/"
       fields = ["nombre", "carrera"]
 
 class ActualizarEstudiantes(UpdateView):
       model = Estudiantes
-      success_url = "App1/estudiantes/list"
+      success_url = "/App1/estudiantes/"
       fields = ["nombre", "carrera"]
 
 class EliminarEstudiantes(DeleteView):      
       model = Estudiantes
-      success_url = "App1/estudiantes/list"
+      success_url = "/App1/estudiantes/"

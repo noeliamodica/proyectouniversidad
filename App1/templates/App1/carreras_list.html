@@ -11,12 +11,13 @@ CARRERAS
 
 {% block descripcion %}
 
-    {% for carrera in object_list %}
+{% for carrera in object_list %}
 
     <p> Nombre: {{carrera.nombre}}</p>
+    <p> Camada: {{carrera.camada}}  </p>
 
     <button>
-    <a href="{% url 'CarrerasDetalle' carrera.id %}"> Ver carrera </a>
+    <a href="{% url 'CarrerasEditar' carrera.id %}"> Ver carrera </a>
     </button>
 
     <button>
@@ -28,7 +29,7 @@ CARRERAS
     </button>
 
     
-    {% endfor %}
+{% endfor %}
 
     <br>
     
